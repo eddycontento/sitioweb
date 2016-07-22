@@ -1,2 +1,0 @@
-# sitioweb
-django,angulars,webserver
