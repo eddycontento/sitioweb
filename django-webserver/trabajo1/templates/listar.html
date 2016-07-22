@@ -1,0 +1,55 @@
+{% extends "master.html"%}
+
+{% block contenido%}
+<br>
+<a href="crearAlumno" class="btn btn-success">Crear Alumno</a>
+<br>
+<div ng-show="informacion" class="bg-primary"><center><h4 class="subheader">Lista de Alumnos</h4></center></div>
+<br>
+<table class ="table table-striped" >
+	<tr>
+		<td>Cédula</td>
+		<td>Apellidos</td>
+		<td>Nombres</td>
+		<td>correo</td>
+		<td>celular</td>
+		<td>opciones</td>
+	</tr>
+	{%for c in alumno%}
+		<tr>
+			<td><a href="modificarAlumno?cedula={{c.cedula}}">{{c.cedula}}</a> </td>
+			<td>{{c.apellidos}} </td>
+			<td>{{c.nombres}} </td>
+			<td>{{c.correo}} </td>
+			<td>{{c.celular}} </td>
+			<td><a href="eliminarA?cedula={{c.cedula}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> 
+		</tr>
+	{%endfor%}
+</table>
+
+<br>
+<a href="crearMateria" class="btn btn-success">Crear Materia</a>
+<br>
+<div ng-show="informacion" class="bg-primary"><center><h4 class="subheader">Lista de Materias</h4></center></div>
+<table class ="table table-striped">
+	<tr>
+		<td>id</td>
+		<td>Nombre</td>
+		<td>cupos</td>
+		<td>descripcion</td>
+		
+		<td>opciones</td>
+	</tr>
+	{%for m in materia%}
+		<tr>
+			<td>{{m.id}} </td>
+			<td>{{m.nombre}} </td>
+			<td>{{m.cupos}} </td>
+			<td>{{m.descripcion}} </td>
+			<td><a href="eliminarM?idMateria={{m.idMateria}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> | <a href="modificarMateria?idMateria={{m.idMateria}}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>  
+		</tr>
+			
+	{%endfor%}
+</table>
+
+{%endblock%}

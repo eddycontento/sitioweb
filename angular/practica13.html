@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="angular/angular.min.js"></script>
+  <script src="angular/angular-resource.js"></script>
+	<script src="js/practica13.js"></script>
+	<meta charset="UTF-8">
+</head>
+<body ng-app="app">
+<div ng-controller="controlador">
+<br>
+<div ng-show="informacion" class="bg-primary"><h4 class="subheader">Para poder ver las materias y los cupos disponibles, primeramente debe estar registrado. Ingrese su cedula para verificar si esta registrado</h4></div>
+<br>
+
+<form ng-show="formulario" ng-submit="validarAlumno()">
+	<input type="text" name="buscarAlumno" ng-model="buscarAlumno" placeholder="Ingrese cedula"></input>
+    <button type="submit" value="buscar" class="btn btn-primary">Buscar Alumno</button>
+</form>
+    
+<br>
+<div class="bg-info">{{mensaje}}{{cedulaAux}}</div>
+<div class="well" ng-show="listaMateria">
+	<center><h2>materias disponibles</h2></center>
+	<table class="table table-striped">
+      <tr>
+        <td>idMateria</td>
+        <td>Nombre</td>
+        <td>cupos</td>
+        <td>descripcion</td>
+      </tr>
+     
+      	<tr ng-repeat="lista1 in materia1">
+      			<td>{{lista1.idMateria}}</td>
+      			<td>{{lista1.nombre}}</td>
+      			<td>{{lista1.cupos}}</td>
+      			<td>{{lista1.descripcion}}</td>
+      			<td><button class="btn btn-danger" type="submit" value="buscar">Matricularse</button></td>
+        		
+      </tr>
+      
+      
+      
+    </table>
+    
+
+ 
+
+</div>
+</div>
+
+
+</body>
+</html>
